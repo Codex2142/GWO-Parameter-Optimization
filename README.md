@@ -6,7 +6,7 @@ Menggunakan algoritma Gray Wolf Optimizer (GWO) untuk mengoptimasi parameter XGB
 - Mencari kombinasi parameter paling optimal berdasarkan fungsi objektif misalnya:
     - Logloss
     - AUC
-    - Accuracy → disarankan AUC untuk dataset tidak seimbang.
+    - Accuracy -> disarankan AUC untuk dataset tidak seimbang.
 # parameter yang dituning
 ```sh
 model = XGBClassifier(
@@ -43,3 +43,6 @@ jangan lupa nanti encoding target fitur ya
 ```sh
 y = y.map({'M':1, 'B':0})
 ```
+
+# Flowchart Sistem
+![Flowchart Sistem](flowchart/flowchart.png "alur GWO dan XGBoost")
