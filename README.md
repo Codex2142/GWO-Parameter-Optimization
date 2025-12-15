@@ -30,13 +30,13 @@ tubes/
 │   ├── classification/
 │   │   ├── svm.py
 │   │   ├── knn.py
-|   |   ├── xgboost.py
+│   │   ├── xgboost.py
 │   │   ├── random_forest.py
 │   │   └── logistic_regression.py
-|   |
-|   ├── templates/
-|   |   └── index.html
-|   |
+│   │
+│   ├── templates/
+│   │   └── index.html
+│   │
 │   ├── __init__.py
 │   ├── config.py
 │   ├── gwo.py
@@ -45,25 +45,25 @@ tubes/
 │
 ├── dataset/
 │   ├── raw/
-|   |   └── dataset.data
-|   |   
+│   │   └── dataset.data
+│   │   
 │   └── cooked/
 │       ├── test.data
 │       └── train_val.data
-|
+│
 ├── env/
-|   ├── (folder lainnya)/
-|   └── Script/
-|       ├── file lainnya
-|       └── activate
-|
+│   ├── (folder lainnya)/
+│   └── Script/
+│       ├── file lainnya
+│       └── activate
+│
 ├── app.py
 ├── README.md
 └── requirements.txt
 ```
 
 ### Cara menjalankan
-pastikan anda memiliki python versi 3.10  
+pastikan anda memiliki python versi ```3.10```  
 jalankan perintah ini pada direktori ```tubes```
 ```sh
 env/Scripts/activate
@@ -94,3 +94,9 @@ setelah itu akan muncul pesan bahwa server sedang berjalan pada port ```5000```
  * Debugger PIN: 263-507-187
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
+
+### PR
+- grafik iterasi belum
+- revisi flowchart bagian ```evaluasi```
+- koreksi parameter lagi
+- cek apakah tiap algoritma klasifikasi sudah imbang
