@@ -1,2 +1,12 @@
-'flowchart/alur sistem.drawio'
-.drawio
+# Virtual Environment
+env/Lib
+
+# Draw.io files
+*.drawio
+
+# Flowchart khusus
+flowchart/sys.drawio
+
+# Cache
+app/__pycache__/
+app/classification/__pycache__/

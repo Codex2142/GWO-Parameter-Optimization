@@ -1,49 +1,3 @@
-# Planning
-Menggunakan algoritma Gray Wolf Optimizer (GWO) untuk mengoptimasi parameter XGBClassifier (Booster: gbtree).
-# Tujuan
-- Meningkatkan kinerja model XGBoost menggunakan optimasi berbasis - - - meta-heuristic (GWO).
-
-- Mencari kombinasi parameter paling optimal berdasarkan fungsi objektif misalnya:
-    - Logloss
-    - AUC
-    - Accuracy -> disarankan AUC untuk dataset tidak seimbang.
-# parameter yang dituning
-```sh
-model = XGBClassifier(
-    objective='binary:logistic',
-    eval_metric='logloss',
-    tree_method='hist',
-    
-    # Parameter yang dioptimasi oleh GWO
-    n_estimators=300,       # optimasi
-    learning_rate=0.05,    # optimasi
-    max_depth=4,           # optimasi
-    min_child_weight=1,    # optimasi
-    subsample=0.8,         # optimasi
-    colsample_bytree=0.8,  # optimasi
-    gamma=0,               # optimasi
-    reg_alpha=0,           # optimasi
-    reg_lambda=1,          # optimasi
-)
-```
-| Parameter |Catatan|
-|---|---|
-| ```n_estimators ``` | rentang wajar 50–1000 |
-| ```learning_rate ``` | rentang 0.001–0.3 |
-| ```max_depth ``` | integer 3–12 |
-| ```min_child_weight ``` | integer 1–10|
-| ```subsample``` | 0.5–1.0|
-| ```colsample_bytree ``` | 0.5–1.0|
-| ```gamma ``` | 0–5|
-| ```reg_alpha ``` | 0–5|
-| ```reg_lambda ``` | 0–5|
-
-# Preprocessing
-jangan lupa nanti encoding target fitur ya
-```sh
-y = y.map({'M':1, 'B':0})
-```
-
 # Flowchart Sistem
 ![Flowchart Sistem](flowchart/flowchart.png "alur GWO dan XGBoost")
 
@@ -66,3 +20,77 @@ y = y.map({'M':1, 'B':0})
 5. tambahkan visualisasi grafik ```GWO``` saat iterasi
 6. tampilkan hasil akhir dari ```training model``` (bukan hasil iterasi GWO)
 7. Usahakan deadline ```27 Desember```, karena setelah itu penulisan paper
+
+# Optimization of Classification Algorithm Parameters Using Gray Wolf Optimizer approach
+dalam projek kali ini, algoritma Gray Wolf Optimizer (GWO) yang termasuk dalam kelompok algoritma Swarm Intelligence berfugnsi untuk memalukan optimasi parameter dari algoritma klasifikasi yang akan diimplementasikan
+### Struktur Folder
+```sh
+tubes/
+├── app/
+│   ├── classification/
+│   │   ├── svm.py
+│   │   ├── knn.py
+|   |   ├── xgboost.py
+│   │   ├── random_forest.py
+│   │   └── logistic_regression.py
+|   |
+|   ├── templates/
+|   |   └── index.html
+|   |
+│   ├── __init__.py
+│   ├── config.py
+│   ├── gwo.py
+│   ├── routes.py
+│   └── services.py
+│
+├── dataset/
+│   ├── raw/
+|   |   └── dataset.data
+|   |   
+│   └── cooked/
+│       ├── test.data
+│       └── train_val.data
+|
+├── env/
+|   ├── (folder lainnya)/
+|   └── Script/
+|       ├── file lainnya
+|       └── activate
+|
+├── app.py
+├── README.md
+└── requirements.txt
+```
+
+### Cara menjalankan
+pastikan anda memiliki python versi 3.10  
+jalankan perintah ini pada direktori ```tubes```
+```sh
+env/Scripts/activate
+```
+jika berhasil, maka terminal akan berubah menjadi seperti dibawah ini
+```sh
+(env) PS E:\Riwayat Kuliah\Semester 7\Swarm Intelligence\Tubes> 
+```
+setelah anda menggunakan venv yang telah disediakan, berikutnya install library pendukung program ini dengan cara
+> [!CAUTION]
+> Proses ini akan memerlukan koneksi internet stabil dan waktu yang cukup lama
+```sh
+pip install -r requirements.txt
+```
+setelah melakukan instalasi library yang dibutuhkan, tahap selajutnya adalah menjalankan file ```app.py```
+```sh
+py app.py
+```
+setelah itu akan muncul pesan bahwa server sedang berjalan pada port ```5000```
+```sh
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 263-507-187
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
