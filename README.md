@@ -100,3 +100,21 @@ setelah itu akan muncul pesan bahwa server sedang berjalan pada port ```5000```
 - revisi flowchart bagian ```evaluasi```
 - koreksi parameter lagi
 - cek apakah tiap algoritma klasifikasi sudah imbang
+
+- algoritma training dan non-training
+
+- skema pengujian (cukup paper / penjealasnan)
+- tergantung bahas breast cancer bisa 5 kutip
+- traditinonal clssification
+- harus penyakit tumor
+- brp metode knn,svm
+- proposed system , sitem yang diajukan menjelaskan bagan
+- methodology mirip bab 2 sempro dan ditambahkan sedikit bab 3
+- disarankan formula
+- 6 - 10 halaman
+- bab 4 dataset ditaruh metodologi sblm proposed method
+- introduction kepanjangen
+- author dihapus
+- result and discussion
+- acknowldgement
+- references
