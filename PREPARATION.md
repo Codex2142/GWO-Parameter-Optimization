@@ -5,7 +5,7 @@ Cantumkan secara singkat dan padat:
 
 - Tujuan penelitian
 
-- Metode utama (algoritma klasifikasi + GWO)
+- Metode utama (XGboost + GWO)
 
 - Dataset yang digunakan
 
@@ -19,7 +19,7 @@ Cantumkan secara singkat dan padat:
 
 ### Paragraf 1 – Permasalahan Umum
 
- - Tingginya angka kanker payudara
+- Tingginya angka kanker payudara
 
 - Pentingnya diagnosis dini berbasis data
 
@@ -27,15 +27,13 @@ Cantumkan secara singkat dan padat:
 
 ### Paragraf 2 – Permasalahan Spesifik
 
-- Keterbatasan performa algoritma klasifikasi standar
+- Keterbatasan performa algoritma xgboost
 
 - Sensitivitas algoritma terhadap pemilihan parameter
 
 ### Paragraf 3 – Literatur Algoritma Klasifikasi
 
-- Pemanfaatan algoritma klasifikasi dalam diagnosis kanker
-
-- Contoh algoritma yang sering digunakan (SVM, KNN, Random Forest, dll.)
+- penerapan XGboost dalam klasifikasi 
 
 ### Paragraf 4 – Literatur GWO dalam Optimasi
 
@@ -53,9 +51,7 @@ Cantumkan secara singkat dan padat:
 
   - Penerapan GWO untuk optimasi parameter
 
-  - Perbandingan performa sebelum dan sesudah optimasi
-
-  - Evaluasi pada dataset kanker payudara
+  - evaluasi hasil optimasi
 
 # Penelitian Terkait (Related Work)
 Cantumkan:
@@ -66,11 +62,11 @@ Cantumkan:
 
   - GWO untuk optimasi parameter
 
-  - Perbandingan classifier tanpa optimasi vs dengan optimasi
+  - XGboost untuk metode klasifikasi
 
 - Sertakan:
 
-  - Algoritma klasifikasi
+  - XGboost
 
   - Metode optimasi
 
@@ -80,65 +76,8 @@ Cantumkan:
 
 kalo bisa pakai tabel dibawha ini:
 
-| Author | Year | Classifier | Optimization | Dataset | Accuracy | Precision | F-1 Score |
-| ------ | ---- | ---------- | ------------ | ------- | -------- | --------  | --------  |
-
-
-# Metodologi Penelitian (Methodology)
-
-### A. Kanker Payudara
-
-- Definisi kanker payudara
-
-- Dampak dan pentingnya diagnosis dini
-
-- Hubungan dengan analisis data medis
-
-### B. Algoritma Klasifikasi
-
-- Pengertian algoritma klasifikasi
-
-- Taksonomi algoritma klasifikasi
-
-- Kelompok algoritma:
-
-- Linear
-
-- Probabilistik
-
-- Tree-based
-
-- Instance-based
-
-- Sertakan gambar taksonomi algoritma klasifikasi
-
-- Contoh algoritma + sitasi
-
-### C. Grey Wolf Optimizer (GWO)
-
-- Inspirasi perilaku serigala abu-abu
-
-- Struktur hierarki (α, β, δ, ω)
-
-- Mekanisme perburuan
-
-- Persamaan matematis utama
-
-- Peran GWO dalam optimasi parameter classifier
-
-### D. Kerangka Kerja Sistem (Proposed Framework)
-
-- Alur kerja penelitian:
-
-- Input dataset
-
-- Preprocessing
-
-- Training classifier
-
-- Optimasi parameter dengan GWO
-
-- Evaluasi performa
+| Author | Year | Optimization | Dataset | Accuracy | Precision | F-1 Score |
+| ------ | ---- | ------------ | ------- | -------- | --------  | --------  |
 
 # Deskripsi Dataset (Dataset Description)
 
@@ -170,6 +109,48 @@ kalo bisa pakai tabel dibawha ini:
 
   - Disarankan menggunakan tabel deskripsi fitur
 
+
+# Metodologi Penelitian (Methodology)
+
+### A. Kanker Payudara
+
+- Definisi kanker payudara
+
+- Dampak dan pentingnya diagnosis dini
+
+- Hubungan dengan analisis data medis
+
+### B. XGboost
+
+- definisi
+
+- rumus
+
+- parameter
+
+### C. Grey Wolf Optimizer (GWO)
+
+- Inspirasi perilaku serigala abu-abu
+
+- Struktur hierarki (α, β, δ, ω)
+
+- Mekanisme perburuan
+
+- Persamaan matematis utama
+
+- Peran GWO dalam optimasi parameter classifier
+
+### D. Kerangka Kerja Sistem (akbar ae)
+
+- Alur kerja penelitian:
+
+- Input dataset
+
+- Preprocessing
+
+- Optimasi parameter dengan GWO
+
+- Evaluasi performa
 
 # Hasil dan Pembahasan (Results and Discussion)
 - Hasil Eksperimen

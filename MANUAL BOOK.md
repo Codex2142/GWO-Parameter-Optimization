@@ -28,9 +28,6 @@ pilih kernel yang telah diinstall barusan, pastikan namanya adalah ```env (3.10.
 ```sh
 TUBES/
 ├── code/
-│   ├── decisiontree.ipynb    <= metode klasifikasi
-│   ├── gradientboost.ipynb   <= metode klasifikasi
-│   ├── randomforest.ipynb    <= metode klasifikasi
 │   ├── xgboost.ipynb         <= metode klasifikasi
 │   ├── gwo.py                <= algoritma optimasi
 │   └── preparation.ipynb     <= pengunduh dataset
