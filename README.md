@@ -1,5 +1,11 @@
 # Flowchart Sistem
+
 ![Flowchart Sistem](flowchart/flowchart.png "alur GWO dan XGBoost")
+
+### Panduan Menjalankan Program
+
+[📘 Manual Book](MANUAL%20BOOK.md)
+
 
 # 1 Eksperimen Optimasi XGBoost dengan Grey Wolf Optimizer (GWO)
 
