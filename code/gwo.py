@@ -18,14 +18,14 @@ displayIteration = True
 # Tampilkan plot konvergensi di akhir
 plotConvergence = True
 
-# Batas stagnasi
-stagnationPatience = 5
+# # Batas stagnasi
+# stagnationPatience = 5
 
-# proporsi wolf di reset
-resetRatio = 0.5
+# # proporsi wolf di reset
+# resetRatio = 0.5
 
-# toleransi perubahan
-epsilon = 1e-6  
+# # toleransi perubahan
+# epsilon = 1e-6  
 
 # ============================================================
 # GREY WOLF OPTIMIZER CLASS
@@ -87,8 +87,9 @@ class GreyWolfOptimizer:
         for iteration in range(maxIteration):
 
             # Parameter kontrol eksplorasi–eksploitasi
-            diversity = self.calculateDiversity()
-            a = 2 * np.exp(-iteration / maxIteration) * (1+ diversity)
+            # diversity = self.calculateDiversity()
+            # a = 2 * np.exp(-iteration / maxIteration) * (1+ diversity)
+            a = 2 - (2 * iteration / maxIteration)
 
             # =================================================
             # Evaluasi Fitness & Update Alpha, Beta, Delta
@@ -176,25 +177,25 @@ class GreyWolfOptimizer:
                     ) / 3
 
             # Stagnasi hanlder
-            if abs(self.alphaScore - self.previousBestScore) < epsilon:
-                self.noImprovementCounter += 1
-            else:
-                self.noImprovementCounter = 0
-            self.previousBestScore = self.alphaScore
+            # if abs(self.alphaScore - self.previousBestScore) < epsilon:
+            #     self.noImprovementCounter += 1
+            # else:
+            #     self.noImprovementCounter = 0
+            # self.previousBestScore = self.alphaScore
 
-            # kondisi Stagnasi
-            if self.noImprovementCounter >= stagnationPatience:
-                resetCount = int(resetRatio * numberOfWolves)
-                resetIndex = np.random.choice(
-                    numberOfWolves, resetCount, replace=False
-                )
+            # # kondisi Stagnasi
+            # if self.noImprovementCounter >= stagnationPatience:
+            #     resetCount = int(resetRatio * numberOfWolves)
+            #     resetIndex = np.random.choice(
+            #         numberOfWolves, resetCount, replace=False
+            #     )
 
-                self.wolvesPosition[resetIndex] = np.random.uniform(
-                    self.lowerBound,
-                    self.upperBound,
-                    (resetCount, self.dimension)
-                )
-                self.noImprovementCounter = 0
+            #     self.wolvesPosition[resetIndex] = np.random.uniform(
+            #         self.lowerBound,
+            #         self.upperBound,
+            #         (resetCount, self.dimension)
+            #     )
+            #     self.noImprovementCounter = 0
             # =================================================
             # Simpan & Tampilkan Fitness Iterasi
             # =================================================

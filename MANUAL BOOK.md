@@ -30,12 +30,15 @@ TUBES/
 ├── code/
 │   ├── xgboost.ipynb         <= metode klasifikasi
 │   ├── gwo.py                <= algoritma optimasi
-│   └── preparation.ipynb     <= pengunduh dataset
-├── dataset/
-│   ├── test.data
-│   └── train_val.data
+│   ├── preparation.ipynb     <= pengunduh dataset               
+│   └── dataset/
+│       ├── test.data         <= dataset yang telah diunduh
+│       └── train_val.data    <= dataset yang telah diunduh
 ├── env/
+├── .gitignore
+├── MANUAL BOOK.md
+├── README.md
+├── requirements.txt
 └── flowchart/
-
 ```
 sekarang program sudah siap untuk menjalankan program yang diberikan label ```metode klasifikasi```

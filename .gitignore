@@ -1,13 +1,16 @@
 # Virtual Environment
 env/Lib
+sitasi/
 
-# Draw.io files
+# files
 *.drawio
+*.doc
 
 # Flowchart khusus
 flowchart/sys.drawio
 
 # Cache
 app/__pycache__/
+code/__pycache__/
 app/classification/__pycache__/
 final/classifier/__pycache__
