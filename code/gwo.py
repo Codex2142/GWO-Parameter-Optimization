@@ -2,9 +2,7 @@ import numpy as np
 import random
 import matplotlib.pyplot as plt
 
-# ============================================================
-# GLOBAL CONFIGURATION
-# ============================================================
+# PARAMETER GWO -----------------------------------------------------
 
 # Jumlah serigala (search agents)
 numberOfWolves = 100
@@ -18,18 +16,8 @@ displayIteration = True
 # Tampilkan plot konvergensi di akhir
 plotConvergence = True
 
-# # Batas stagnasi
-# stagnationPatience = 5
 
-# # proporsi wolf di reset
-# resetRatio = 0.5
-
-# # toleransi perubahan
-# epsilon = 1e-6  
-
-# ============================================================
-# GREY WOLF OPTIMIZER CLASS
-# ============================================================
+# CLASS GWO -----------------------------------------------------
 
 class GreyWolfOptimizer:
 
@@ -38,14 +26,14 @@ class GreyWolfOptimizer:
     # --------------------------------------------------------
     def __init__(self, objectiveFunction, lowerBound, upperBound, dimension):
 
-        # Fungsi objektif (fitness function)
+        # Fungsi objektif
         self.objectiveFunction = objectiveFunction
 
         # Batas bawah dan atas ruang pencarian
         self.lowerBound = np.array(lowerBound)
         self.upperBound = np.array(upperBound)
 
-        # Jumlah dimensi (jumlah parameter yang dioptimasi)
+        # Jumlah dimensi
         self.dimension = dimension
 
         # Alpha wolf (solusi terbaik)
@@ -70,14 +58,6 @@ class GreyWolfOptimizer:
         # Menyimpan nilai fitness terbaik tiap iterasi
         self.convergenceCurve = []
 
-        # Variabel pengecekan stagnasi atau tidak
-        self.noImprovementCounter = 0
-        self.previousBestScore = float("inf")
-
-    # Menghitung Standart Deviasi populasi
-    def calculateDiversity(self):
-        return np.mean(np.std(self.wolvesPosition, axis=0))
-
     # --------------------------------------------------------
     # Proses Optimasi
     # --------------------------------------------------------
@@ -86,14 +66,9 @@ class GreyWolfOptimizer:
         # Loop utama iterasi
         for iteration in range(maxIteration):
 
-            # Parameter kontrol eksplorasi–eksploitasi
-            # diversity = self.calculateDiversity()
-            # a = 2 * np.exp(-iteration / maxIteration) * (1+ diversity)
             a = 2 - (2 * iteration / maxIteration)
 
-            # =================================================
-            # Evaluasi Fitness & Update Alpha, Beta, Delta
-            # =================================================
+            # Iterasi Serigala ke-1 hingga akhir
             for wolfIndex in range(numberOfWolves):
 
                 # Pastikan posisi serigala dalam batas pencarian
@@ -132,9 +107,7 @@ class GreyWolfOptimizer:
                     self.deltaScore = fitnessValue
                     self.deltaPosition = self.wolvesPosition[wolfIndex].copy()
 
-            # =================================================
-            # Update Posisi Semua Serigala
-            # =================================================
+            # Update Posisi
             for wolfIndex in range(numberOfWolves):
                 for dimensionIndex in range(self.dimension):
 
@@ -176,29 +149,7 @@ class GreyWolfOptimizer:
                         X1 + X2 + X3
                     ) / 3
 
-            # Stagnasi hanlder
-            # if abs(self.alphaScore - self.previousBestScore) < epsilon:
-            #     self.noImprovementCounter += 1
-            # else:
-            #     self.noImprovementCounter = 0
-            # self.previousBestScore = self.alphaScore
-
-            # # kondisi Stagnasi
-            # if self.noImprovementCounter >= stagnationPatience:
-            #     resetCount = int(resetRatio * numberOfWolves)
-            #     resetIndex = np.random.choice(
-            #         numberOfWolves, resetCount, replace=False
-            #     )
-
-            #     self.wolvesPosition[resetIndex] = np.random.uniform(
-            #         self.lowerBound,
-            #         self.upperBound,
-            #         (resetCount, self.dimension)
-            #     )
-            #     self.noImprovementCounter = 0
-            # =================================================
-            # Simpan & Tampilkan Fitness Iterasi
-            # =================================================
+            # Output tiap iterasi
             self.convergenceCurve.append(self.alphaScore)
 
             if displayIteration:
@@ -207,9 +158,7 @@ class GreyWolfOptimizer:
                     f"Best Fitness: {self.alphaScore:.6f}"
                 )
 
-        # =====================================================
-        # Plot Konvergensi
-        # =====================================================
+        # Pplot
         if plotConvergence:
             plt.figure(figsize=(8, 5))
             plt.plot(self.convergenceCurve, linewidth=2)
@@ -220,9 +169,7 @@ class GreyWolfOptimizer:
             plt.tight_layout()
             plt.show()
 
-        # =====================================================
-        # Return hasil optimasi
-        # =====================================================
+        # Alpha
         return {
             "bestScore": self.alphaScore,
             "bestPosition": self.alphaPosition,
