@@ -28,12 +28,12 @@ pilih kernel yang telah diinstall barusan, pastikan namanya adalah ```env (3.10.
 ```sh
 TUBES/
 ├── code/
-│   ├── xgboost.ipynb         <= metode klasifikasi
-│   ├── gwo.py                <= algoritma optimasi
-│   ├── preparation.ipynb     <= pengunduh dataset               
+│   ├── SourceCode_tugas2_kel_09.ipynb         <= metode klasifikasi
+│   ├── gwo.py                                 <= algoritma optimasi
+│   ├── preparation.ipynb                      <= pengunduh dataset               
 │   └── dataset/
-│       ├── test.data         <= dataset yang telah diunduh
-│       └── train_val.data    <= dataset yang telah diunduh
+│       ├── test.data                          <= dataset yang telah diunduh
+│       └── train_val.data                     <= dataset yang telah diunduh
 ├── env/
 ├── .gitignore
 ├── MANUAL BOOK.md
